@@ -152,5 +152,29 @@
     "cmdDescription":"Descrição sobre canais da guilda.",
     "channelTitle":"Descrição",
     "about":"Nome : `{{channel}}`\nData de criação: `{{created}}`\nTipo: `{{type}}`\nID: `{{Id}}`\nPosição: `{{position}}`\nLimite de Usuários: {{userLimit}}"
+  },
+  "ascii": {
+    "commandDescription": "Envia um texto em ascii no chat.",
+    "commandUsage": "<texto>",
+    "emitedError": "Ocorreu um error no processamento!\n`{{- error}}`"
+  },
+  "hug": {
+    "commandDescription": "Abraça um usuário.",
+    "commandUsage": "<usuário>",
+    "missingUser": "Você precisa mencionar o usuário que deseja abraçar!",
+    "successHug": "{{- author}} abraçou {{- user}}!"
+  },
+  "slap": {
+    "commandDescription": "Da um tapa em um usuário.",
+    "commandUsage": "<usuário>",
+    "missingUser": "Você precisa mencionar o usuário que deseja estapear!",
+    "successSlap": "{{- author}} deu um tapa em {{- user}}!"
+  },
+  "reportbug": {
+    "commandDescription": "Esclarece um bug para o time de desenvolvedores do bot.",
+    "commandUsage": "<bug> [--screenshots <prints url>]",
+    "missingBug": "Desculpe, você precisa inserir o bug.",
+    "screenshots": "Capturas de tela",
+    "view": "Ver"
   }
 }

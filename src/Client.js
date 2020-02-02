@@ -47,6 +47,8 @@ module.exports = class RuneScapeClient extends Client {
     return [Object.entries(loaders).length, loadeds]
   }
 
+ 
+
   console(err, msg, ...nodes) {
     let tag = err ? ' \x1b[31m[ERROR]\x1b[0m' : '';
     let send = `\x1b[32m[${getDate()}]\x1b[0m${tag} ${nodes.length ? `${nodes.map(n => `\x1b[34m[${n}]\x1b[0m`).join(' ')} ${msg}` : msg}`

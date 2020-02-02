@@ -7,7 +7,7 @@ module.exports = class BotInfo extends Command {
     super(client, path, {
       name: 'botinfo',
       category: 'bot',
-      aliases: ['binfo', 'bi']
+      aliases: ['binfo', 'jarvis']
     })
   }
 
