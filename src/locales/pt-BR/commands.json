@@ -1,0 +1,156 @@
+{
+  "eval": {
+    "commandDescription": "Avalia uma string JS.",
+    "commandUsage": "<texto>"
+  },
+  "config": {
+    "commandDescription": "Altera a configuração atual do servidor.",
+    "commandUsage": "[configuração a ser alterada]",
+    "subcommands": {
+      "language": {
+        "commandDescription": " Altera o idioma atual do servidor.",
+        "commandUsage": "<código do idioma>",
+        "missingTranslation": "Algumas traduções podem estar faltando",
+        "info": "**Para alterar o idioma do servidor**:",
+        "noCode": "Você tem que me dar um código de idioma!",
+        "availableLanguages": "Idiomas disponíveis",
+        "changedSuccessfully": "Idioma alterado para **{{lang}}**"
+      },
+      "prefix": {
+        "commandDescription": "Altera o prefixo do servidor atual.",
+        "commandUsage": "<novo prefixo>",
+        "info": "**Para alterar o prefixo do servidor**:",
+        "noPrefix": "Você tem que me dar um prefixo!",
+        "changedSuccessfully": "O prefixo foi alterado para **`{{prefix}}`**"
+      }
+    }
+  },
+  "botinfo": {
+    "commandDescription": "Mostra informações sobre o bot.",
+    "stats": {
+      "title": "**Estatisticas do {{client.username}}**",
+      "text": "**Servidores**: `{{servers}}`\n**Usuários**: `{{users}}`\n**Tempo Online**: `{{uptime}}`"
+    },
+    "host": {
+      "title": "**Sobre a minha Hospedagem**",
+      "text": "**Memória Ram**: `{{ram}}`\n**Latência**: `{{ping}}`\n**Versão do Node**: [`{{version}}`](https://nodejs.org)"
+    },
+    "more": {
+      "title": "**Mais Informações**",
+      "text": "**Língua de Programação**: `JS (JavaScript)`\n**Discord.js**: [`{{dVersion}}`](https://discord.js.org)\n**Prefixo**: `{{prefix}}`"
+    }
+  },
+  "help": {
+    "commandDescription": "Mostra informações sobre comandos ou lista-os.",
+    "commandUsage": "<nome do comando>",
+    "noDescriptionProvided": "Nenhuma descrição fornecida.",
+    "specificInformation": "Digite `{{helpString}}` para obter informações específicas do comando.",
+    "category": "Categoria",
+    "listTitle": "Comandos Disponíveis",
+    "prefix": "Prefixo",
+    "usage": "Utilização",
+    "aliases": "Alternativas",
+    "permissions": "Permissões",
+    "subcommands": "Subcomandos",
+    "botPermissions": "Permissões do Bot"
+  },
+  "reload": {
+    "error": "Ocorreu um erro ao recarregar o comando:\n**{{error}}**",
+    "sucess": "O comando **`{{command}}`** foi recarregado com sucesso!",
+    "noCommand": "Por favor insira o `nome` ou uma `aliase` do comando a ser recarregado!"
+  },
+  "serverinfo": {
+    "commandDescription": "Mostra as informações do servidor.",
+    "info": {
+      "title": "**Informações e Estatisticas:**",
+      "text": "**Membros: `{{members}}`\nBots: `{{bots}}`\nVerificação: `{{verified}}`\nNível de Verificação: `{{verification}}`**"
+    },
+    "owner": {
+      "title": "**Dono Criação:**",
+      "text": "**Dono: {{owner}}\nCriado em: `{{founded}}`\nRegião: {{region}}**"
+    },
+    "structure": {
+      "title": "**Canais de texto, voz e categoria:**",
+      "text": "**A soma dos canais de `textos`, `voz` e `categorias` é `{{total}}` sendo:\nCanais de Texto: `{{text}}`\nCanais de Voz: `{{voice}}`\n Categorias: `{{category}}`**"
+    },
+    "miscellaneous": {
+      "title": "**Mais Informações:**",
+      "text": "**Emojis Particulares: `{{emojis}}`\nTotal de Cargos: `{{roles}}`\nConfiguração do AFK:**\nTempo: **`{{afkTime}}`**\nCanal: {{afkChannel}}"
+    }
+  },
+  "reloadlocales": {
+    "error": "Ocorreu um erro ao recarregar o sistema: **{{error}}**",
+    "sucess": "O sistema foi recarregado com **sucesso**!"
+  },
+  "userinfo": {
+    "cmdDescription": "Painel de controle de usuários da guilda {{guild}}",
+    "userDescription":"**Nome: `{{member}}`\nTag: `{{tag}}`\nBot ?  `{{bot}}`**",
+  "moreInformation":{
+    "more":"Informações de criação",
+    "userInformation":"**Criada em : `{{created}}`\nID `{{id}}`**"
+    },
+    "presence":{
+      "presenceTitle":"Informações sobre o status do usuário.",
+      "presenceInfo":"**Jogando : `{{game}}`\nStatus: `{{status}}`**"
+    },
+    "roles":{
+      "rolesInfo":"Cargos dentro da guilda",
+      "rolesName":"Tags: {{roles}}"
+    }
+  },
+  "stats": {
+    "commandDescription": "Mostra informações sobre um jogador de RuneScape.",
+    "commandUsage": "<versão> <pesquisa>",
+    "embedTitle": "Por favor insira a versão que deseja fazer a pesquisa!",
+    "needInsert": "Você precisa fornecer o apelido do jogador desejado!",
+    "noFound": "Desculpe, não consegui encontrar nenhum jogador com oque foi inserido!",
+    "subcommands": {
+      "rs": {
+        "commandDescription": "Mostra informações do perfil do jogador na versão atualizada (RS3) do RuneScape.",
+        "commandUsage": "<apelido do jogador>",
+        "tableTitle": "ESTATÍSTICAS DO RS3 DE: {{search}}"
+      },
+      "osrs": {
+        "commandDescription": "Mostra informações do perfil do jogador na versão antiga (OldSchool) do RuneScape.",
+        "commandUsage": "<apelido do jogador>",
+        "tableTitle": "ESTATÍSTICAS DO OSRS DE: {{player}}"
+      }
+    }
+  },
+  "claninfo": {
+    "commandDescription": "Mostra informações sobre um clan de RuneScape.",
+    "commandUsage": "<versão> <pesquisa>",
+    "embedTitle": "Por favor insira a versão que deseja fazer a pesquisa!",
+    "needInsert": "Você precisa fornecer o nome do clan desejado!",
+    "noFound": "Desculpe, não consegui encontrar nenhum clan com oque foi inserido!",
+    "subcommands": {
+      "rs": {
+        "commandDescription": "Mostra informações de um clan na versão atualizada (RS3) do RuneScape.",
+        "commandUsage": "<nome do clan>",
+        "embedTitle": "Informações sobre o clan: **{{clanName}}**",
+        "totalMembers": "Total de Membros: **{{members}}**",
+        "tableTitle": "Membros",
+        "andMore": "e mais **{{size}}** membros..."
+      }
+    }
+  },
+  "activities": {
+    "commandDescription": "Mostra a atividade de um jogador de RuneScape.",
+    "commandUsage": "<versão> <pesquisa>",
+    "embedTitle": "Por favor insira a versão que deseja fazer a pesquisa!",
+    "needInsert": "Você precisa fornecer o nome do jogador desejado!",
+    "noFound": "Desculpe, não consegui encontrar nenhum clan com oque foi inserido!",
+    "subcommands": {
+      "osrs": {
+        "commandDescription": "Mostra informações do perfil do jogador na versão antiga (OldSchool) do RuneScape.",
+        "commandUsage": "<apelido do jogador>",
+        "tableTitle": "ATIVIDADE DO OSRS DE: {{player}}"
+      }
+    }
+  },
+  "channelinfo":{
+    "cmdDescription":"Descrição sobre canais da guilda.",
+    "channelTitle":"Descrição",
+    "about":"Nome : `{{channel}}`\nData de criação: `{{created}}`\nTipo: `{{type}}`\nID: `{{Id}}`\nPosição: `{{position}}`\nLimite de Usuários: {{userLimit}}"
+  }
+}

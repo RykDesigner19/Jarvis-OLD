@@ -1,0 +1,15 @@
+{
+  "usage": "Usage",
+  "enabled": "enabled",
+  "disabled": "disabled",
+  "none": "none",
+  "channelTypes": {
+    "text": "Text",
+    "category": "Category",
+    "voice": "Voice"
+  },
+  "texts": {
+    "subcmd": "subcommands",
+    "versions": "Versions"
+  }
+}
