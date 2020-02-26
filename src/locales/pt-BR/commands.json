@@ -176,5 +176,9 @@
     "missingBug": "Desculpe, você precisa inserir o bug.",
     "screenshots": "Capturas de tela",
     "view": "Ver"
+  },
+  "changeavatar": {
+    "args-null": "coloque a URL do avatar.",
+    "avatar": "Pronto, agora eu estou com um novo avatar"
   }
 }

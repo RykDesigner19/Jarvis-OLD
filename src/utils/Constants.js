@@ -1,12 +1,11 @@
 module.exports = {
-  // Colors 
+  // Colors
 
-  EMBED_COLOR: '#ff8c00',
-  ERROR_COLOR: '#fc0303',
+  EMBED_COLOR: "#ff8c00",
+  ERROR_COLOR: "#fc0303",
 
-  DEFAULT_PREFIX: '!',
+  DEFAULT_PREFIX: "!",
+  BOT_GUILD: "651619495865221123",
+  DEVELOPER_ROLE: "670503717258264594",
 
-  Channels: {
-    BUG_REPORT: '670666622142513194'
-  },
-}
+};
