@@ -266,5 +266,21 @@
       "title": "**Mais Informações:**",
       "text": "**Emojis Particulares: `{{emojis}}`\nTotal de Cargos: `{{roles}}`\nConfiguração do AFK:**\nTempo: **`{{afkTime}}`**\nCanal: {{afkChannel}}"
     }
+  },
+  "userinfo": {
+    "cmdDescription": "Painel de controle de usuários da guilda {{guild}}",
+    "userDescription":"**Nome: `{{member}}`\nTag: `{{tag}}`\nBot ?  `{{bot}}`**",
+  "moreInformation":{
+    "more":"Informações de criação",
+    "userInformation":"**Criada em : `{{created}}`\nID `{{id}}`**"
+    },
+    "presence":{
+      "presenceTitle":"Informações sobre o status do usuário.",
+      "presenceInfo":"**Jogando : `{{game}}`\nStatus: `{{status}}`**"
+    },
+    "roles":{
+      "rolesInfo":"Cargos dentro da guilda",
+      "rolesName":"Tags: {{roles}}"
+    }
   }
 }
