@@ -247,5 +247,24 @@
       "title": "**Mais Informações**",
       "text": "**Língua de Programação**: `JS (JavaScript)`\n**Discord.js**: [`{{dVersion}}`](https://discord.js.org)\n**Prefixo**: `{{prefix}}`"
     }
+  },
+  "serverinfo": {
+    "commandDescription": "Mostra as informações do servidor.",
+    "info": {
+      "title": "**Informações e Estatisticas:**",
+      "text": "**Membros: `{{members}}`\nBots: `{{bots}}`\nVerificação: `{{verified}}`\nNível de Verificação: `{{verification}}`**"
+    },
+    "owner": {
+      "title": "**Dono Criação:**",
+      "text": "**Dono: {{owner}}\nCriado em: `{{founded}}`\nRegião: {{region}}**"
+    },
+    "structure": {
+      "title": "**Canais de texto, voz e categoria:**",
+      "text": "**A soma dos canais de `textos`, `voz` e `categorias` é `{{total}}` sendo:\nCanais de Texto: `{{text}}`\nCanais de Voz: `{{voice}}`\n Categorias: `{{category}}`**"
+    },
+    "miscellaneous": {
+      "title": "**Mais Informações:**",
+      "text": "**Emojis Particulares: `{{emojis}}`\nTotal de Cargos: `{{roles}}`\nConfiguração do AFK:**\nTempo: **`{{afkTime}}`**\nCanal: {{afkChannel}}"
+    }
   }
 }
