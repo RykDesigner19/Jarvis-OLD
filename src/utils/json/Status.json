@@ -1,23 +1,23 @@
 {
   "listening": [
     "Spotify",
-    "Pyotr Ilyich Tchaikovsky"
+    "Youtube"
   ],
   "watching": [
-    "Supernatural",
-    "CSI: Crime Scene Investigation",
-    "House",
-    "Brazil x Alemanha",
-    "{guilds} Servers | Prefix: {prefix}",
-    "{users} Users in {guilds} Servers"
+    "Videos",
+    "RuneScape Live",
+    "Assasinos",
+    "HijaZi",
+    "{guilds} Servidores | Prefixo: {prefix}",
+    "{users} Usuários em {guilds} Guildas"
   ],
   "streaming": [
-    "Music in {musicServers} servers!"
+    " Tocando em {musicServers} guildas"
   ],
   "playing": [
-    "Battlefield 4",
-    "Fortnite",
-    "PUBG Lite",
+    "RuneScape",
+    "Facebook",
+    "Instagram",
     "@{client} help"
   ]
 }

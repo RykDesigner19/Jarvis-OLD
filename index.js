@@ -25,7 +25,7 @@ const CLIENT_OPTIONS = {
   canvasLoaded
 }
 
-const TobiasClient = require('./src/TobiasClient.js')
+const TobiasClient = require('./src/Fenix.js')
 const client = new TobiasClient(CLIENT_OPTIONS)
 client
   .login()

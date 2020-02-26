@@ -2,7 +2,7 @@ const { Client } = require('discord.js')
 const moment = require('moment')
 
 const loaders = require('./loaders')
-const { Loader } = require('./')
+const { Loader } = require('.')
 
 const getDate = () => moment.locale('pt-BR') && moment().format('L LTS')
 

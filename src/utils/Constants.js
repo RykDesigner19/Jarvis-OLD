@@ -36,14 +36,14 @@ module.exports = {
   DEFAULT_PERSONAL_TEXT: 'Nothing inserted...',
 
   // Bot Settings
-  CLIENT_ID: '553725634724102144',
-  DEFAULT_PREFIX: 'tc@',
+  CLIENT_ID: '496746907037728768',
+  DEFAULT_PREFIX: '!',
   DEFAULT_LANGUAGE: 'pt-BR',
-  BOT_GUILD: '500452776770535444',
-  DEVELOPER_ROLE: '671404243449544704',
-  WEBSITE_URL: 'https://tobias.site',
+  BOT_GUILD: '682007461414174729',
+  DEVELOPER_ROLE: '682008234953146388',
+  WEBSITE_URL: 'https://www.instagram.com/hijazi_gabriel/',
   Channels: {
-    BUG_REPORT: '671400580781965313'
+    BUG_REPORT: '682018687624020082'
   },
 
   // Discord Wrapper
