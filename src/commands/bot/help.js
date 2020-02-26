@@ -1,83 +1,162 @@
-const { Command, ClientEmbed } = require("../../");
-
-const regexpSpecialChars = /([[\]^$|()\\+*?{}=!.])/gi
-const quoteRegex = (text) => text.replace(regexpSpecialChars, '\\$1')
-const prefixRegex = (prefix) => new RegExp(`^${quoteRegex(prefix)}`)
+const { Command, ClientEmbed, Utils } = require('../../')
 
 module.exports = class Help extends Command {
-  constructor(client, path) {
+  constructor (client, path) {
     super(client, path, {
       name: 'help',
       category: 'bot',
-      aliases: ['commands'],
+      aliases: ['ajuda'],
       utils: {
-        parameters: [{
-          type: 'string', full: true, required: false
-        }]
+        parameters: [
+          {
+            type: 'command',
+            required: false,
+            getSubcommands: true,
+            validCommands: true
+          }
+        ]
       }
     })
   }
 
-  run(context, cmd) {
-    const { t, channel, author, prefix } = context;
-
+  async run ({ t, channel, author, prefix, ...context }, command) {
+    const { user: clientUser } = this.client
     const embed = new ClientEmbed(author)
-    const validCommands = this.client.commands.filter(c => !c.hidden);
 
-    if (cmd) {
-      cmd = cmd.replace(prefixRegex(prefix), '')
-      const command = cmd.split(' ').reduce((o, ca) => {
-        const arr = (Array.isArray(o) && o) || (o && o.subcommands)
-        if (!arr) return o
-        return arr.find(c => (c.name === ca.toLowerCase()) || c.aliases.includes(ca.toLowerCase()))
-      }, validCommands);
+    if (command) {
+      const fullName = command.fullName
+      const { subcommands, utils: { requirements: reqs } = {} } = command
+      const aliases =
+        command.aliases.length &&
+        command.aliases.map(a => `\`${a}\``).join(', ')
 
-      if (command) {
-        const fields = [
-          [t('commands:help.usage'), `**\`${command.usage(t, prefix, false, true)}\`**`],
-          [t('commands:help.category'), `**\`${t(`categories:${command.category}`)}\`**`]
-        ]
+      const fields = [
+        [
+          t('commons:usage'),
+          `**\`${command.usage(t, prefix, false, true)}\`**`
+        ],
+        [t('commons:aliases'), `**${aliases || t('commons:none_a')}**`]
+      ]
 
-        if (command.aliases.length > 0) fields.push([t('commands:help.aliases'), command.aliases.map(a => `**\`${a}\`**`).join(', ')]);
-        if (command.utils.requirements && command.utils.requirements.permissions) {
-          fields.push([t('commands:help.permissions'), command.utils.requirements.permissions.map(p => `**\`${t(`permissions:${p}`)}\`**`).join(', ')])
-        }
-        if (command.utils.requirements && command.utils.requirements.botPermissions) {
-          fields.push([t('commands:help.botPermissions'), command.utils.requirements.botPermissions.map(p => `**\`${t(`permissions:${p}`)}\`**`).join(', ')])
-        }
-        if (command.subcommands.length) fields.push([
-          t('commands:help.subcommands'), command.subcommands.map(s => `**\`${s.name}\`**`).join(', ')
+      if (reqs && reqs.permissions) {
+        fields.push([
+          t('commons:permissions'),
+          reqs.permissions
+            .map(p => `**\`${t(`permissions:${p}`)}\`**`)
+            .join(', ')
         ])
+      }
 
-        fields.forEach(field => embed.addField(...field))
-        channel.send(embed
-          .setAuthor(command.capitalizeName)
-          .setTitle(t([`commands:${command.tPath}.commandDescription`, 'commands:help.noDescriptionProvided']))
-        )
-      } else this.helpSend(context, embed, validCommands)
-    } else this.helpSend(context, embed, validCommands)
+      if (reqs && reqs.botPermissions) {
+        fields.push([
+          t('commons:botPermissions'),
+          reqs.botPermissions
+            .map(p => `**\`${t(`permissions:${p}`)}\`**`)
+            .join(', ')
+        ])
+      }
+
+      if (subcommands.length) {
+        const mainUsage = `${prefix}${this.name}`
+        fields.push([
+          t('commons:texts.subcommands'),
+          [
+            subcommands.map(s => `**\`${s.name}\`**`).join(', '),
+            t('commands:help.subcommandKnowMore', {
+              usage: `${mainUsage} ${fullName}`
+            })
+          ].join('\n')
+        ])
+      }
+
+      fields.forEach(field => embed.addField(...field))
+      channel.send(
+        embed
+          .setAuthor(
+            fullName
+              .split(' ')
+              .map(n => n.capitalize())
+              .join(' - ')
+          )
+          .setTitle(
+            t([
+              `commands:${command.tPath}.commandDescription`,
+              'commands:help.noDescriptionProvided'
+            ])
+          )
+      )
+    } else {
+      this.fullHelp({
+        t,
+        channel,
+        author,
+        prefix,
+        clientUser,
+        embed,
+        ...context
+      })
+    }
   }
 
-  helpSend({ t, channel, prefix }, embed, validCommands) {
-    const categories = validCommands.map(c => c.category).filter((v, i, a) => a.indexOf(v) === i)
-    categories
-      .sort((a, b) => t(`categories:${a}`).localeCompare(t(`categories:${b}`)))
-      .forEach(category => {
-        const commands = validCommands
-          .filter(c => c.category === category)
-          .sort((a, b) => a.name.localeCompare(b.name))
-          .map(c => `\`${c.name}\``).join('**, **')
-        embed.addField(t(`categories:${category}`), commands, false)
-      })
+  fullHelp ({ t, channel, prefix, clientUser, embed }) {
+    const commands = this.client.commands
+    const chosenCategory = commands
+      .filter(c => !c.hidden)
+      .map(c => c.category)
+      .sort(() => (Math.random() > 0.5 ? -1 : 1))[0]
+    const someCommands = commands
+      .filter(c => c.category === chosenCategory)
+      .slice(0, 10)
 
-    channel.send(embed
-      .setAuthor(t('commands:help.listTitle'), this.client.user.displayAvatarURL)
-      .setTitle(`${t('commands:help.specificInformation', { helpString: this.usage(t, prefix, false, true) })}`)
-      .setDescription([
-        'ㅤ',
-        `**${t('commands:help.prefix')}:** \`${prefix}\` || ${this.client.user.toString()}`,
-        'ㅤ'
-      ].join('\n'))
+    const commandString = commands
+      .find(c => c.name === 'commands')
+      .usage(t, prefix, false, true)
+    const timeOnline = Utils.duration(this.client.uptime, {
+      format: 'd[d] h[h] m[m] s[s]',
+      stopTrim: 'm',
+      trim: true
+    })
+
+    channel.send(
+      embed
+        .setAuthor(
+          t('client:clientUserHelp', { clientUser }),
+          clientUser.displayAvatarURL
+        )
+        .setThumbnail(clientUser.displayAvatarURL)
+        .setDescription(
+          [
+            `**[${t('commons:utils.invite')}](${Utils.generateInvite(
+              8,
+              clientUser.id
+            )})**`,
+            `**[${t('commons:utils.website')}](${Utils.website})**`,
+            '',
+            `**${t('commons:texts.about')}**`,
+            `${t('client:description')}`,
+            '',
+            `**${t('commons:utils.additional')}**`,
+            `${t('client:viewCommandList')}:`,
+            '',
+            `**${t(`categories:${chosenCategory}`)}**: ${someCommands
+              .map(cmd => `\`${cmd.name}\``)
+              .join(', ')}...`,
+            `${t('commands:help.specificInformation', {
+              helpString: this.usage(t, prefix, false, true)
+            })}`,
+            '',
+            `${t('client:toKnowMoreHelp', {
+              commandString
+            })} ${Utils.websiteUrl('commands')}`,
+            '',
+            `**${t('client:aboutHelping')} ?**`,
+            Utils.websiteUrl('donate'),
+            `**${t('client:configureYourServer')}**`,
+            Utils.websiteUrl('dashboard'),
+            '',
+            `${t('client:timeOnline')}: **${Utils.replaceTime(t, timeOnline)}**`
+          ].join('\n')
+        )
     )
   }
 }

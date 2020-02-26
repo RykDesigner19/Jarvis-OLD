@@ -1,17 +1,19 @@
-const { Command } = require("../../");
+const { Command } = require('../../')
 
 module.exports = class Ping extends Command {
-  constructor(client, path) {
+  constructor (client, path) {
     super(client, path, {
       name: 'ping',
-      category: 'bot',
-      aliases: ['pong']
+      category: 'bot'
     })
   }
 
-  run({ channel, message: { createdTimestamp } }) {
-    channel.send('\`❔\`').then(m => {
-      m.edit(`🏓 Pong! **${parseInt(m.createdTimestamp - createdTimestamp)} ms**`)
-    })
+  run ({ channel, instancedTimestamp }) {
+    const now = Date.now()
+    channel.send(
+      `🏓 Pong! **${parseInt(
+        now - instancedTimestamp
+      )} ms** | API \`${Math.trunc(this.client.ping)}ms\``
+    )
   }
 }

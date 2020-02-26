@@ -1,5 +1,7 @@
-const { RichEmbed, User } = require("discord.js");
-const Constants = require("../utils/Constants.js");
+const { RichEmbed, User } = require('discord.js')
+const Constants = require('../utils/Constants.js')
+
+const hasUser = U => U instanceof User
 
 module.exports = class ClientEmbed extends RichEmbed {
   /**
@@ -17,33 +19,41 @@ module.exports = class ClientEmbed extends RichEmbed {
    * @param {<User>} [d.author.user]
    * @param {String} [d.author.url]
    */
-  constructor(u, d = {}) {
+  constructor (u, d = {}) {
     super()
+
     const data = this.resolveData(u, d)
 
     if (data.url) this.setURL(data.url)
     if (data.color) this.setColor(data.color)
     if (data.title) this.setTitle(data.title)
-    if (data.author) this.setAuthor(data.author.user.username, data.author.user.displayAvatarURL, data.author.url)
+    if (data.author) {
+      this.setAuthor(
+        data.author.username,
+        data.author.displayAvatarURL,
+        data.author.url
+      )
+    }
     if (data.timestamp) this.setTimestamp(data.timestamp)
     if (data.image) this.setImage(data.image)
     if (data.thumbnail) this.setThumbnail(data.thumbnail)
     if (data.footer) this.setFooter(u.username, u.displayAvatarURL)
-
   }
 
-  resolveData(user, data) {
-    const hasUser = (U) => U instanceof User
+  resolveData (user, data) {
+    const [author, url] = data.author || []
     return {
       url: data.url,
       title: data.title,
       image: data.image,
       thumbnail: data.thumbnail,
       description: data.description,
-      timestamp: (data.timestamp || Date.now()),
-      color: (data.EMBED_COLOR || Constants.EMBED_COLOR),
+      timestamp: data.timestamp || Date.now(),
+      color: data.EMBED_COLOR || Constants.EMBED_COLOR,
       footer: hasUser(user),
-      author: (data.author && hasUser(data.author[0])) && { user: data.author[0], url: data.author[1] },
+      author: hasUser(author)
+        ? { ...author, url: url || author.displayAvatarURL }
+        : null
     }
   }
 }

@@ -1,11 +1,11 @@
 module.exports = class Loader {
-  constructor(name, client) {
+  constructor (name, client) {
     this.name = name
     this.client = client
     this.critical = false
   }
 
-  load (client) {
+  load () {
     return true
   }
 }

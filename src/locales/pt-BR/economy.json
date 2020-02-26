@@ -1,0 +1,20 @@
+{
+  "levelup": "Parabéns **{{username}}**, você acaba de passar para o level **{{level}}**!",
+  "currencyWithCount": "{{count}} Biscoito Tobias",
+  "currencyWithCount_plural": "{{count}} Biscoitos Tobias",
+  "lowerPocket": "{{count}} biscoito",
+  "lowerPocket_plural": "{{count}} biscoitos",
+  "totalXp": "XP TOTAL",
+  "pockets": "BISCOITOS",
+  "level": "LEVEL",
+  "leveluped": "SUBIU DE LEVEL!",
+  "lvl": "LVL",
+  "rank": "RANK",
+  "personalText": "Texto Pessoal",
+  "texts": {
+    "rank": "Classificação",
+    "user": "Usuário",
+    "level": "Level",
+    "xp": "XP"
+  }
+}

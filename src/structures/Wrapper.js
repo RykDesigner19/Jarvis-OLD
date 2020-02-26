@@ -1,10 +1,10 @@
 module.exports = class Wrapper {
-  constructor(name, client) {
+  constructor (name) {
     this.name = name
-    this.client = client
+    Object.defineProperty(this, 'envVars', { value: [], writable: true })
   }
 
-  load() {
+  load () {
     return this
   }
 }

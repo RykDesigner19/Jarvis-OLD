@@ -3,6 +3,25 @@
     "commandDescription": "Avalia uma string JS.",
     "commandUsage": "<texto>"
   },
+  "ping": {
+    "commandDescription": "Mostra o tempo de resposta do bot."
+  },
+  "reload": {
+    "commandDescription": "Recarrega o comando inserido.",
+    "commandUsage": "<nome do comando>",
+    "error": "Ocorreu um erro ao recarregar o comando",
+    "sucess": "O comando **`{{commandName}}`** foi recarregado com sucesso!",
+    "missingCommand": "Por favor insira o `nome` ou uma `aliase` do comando a ser recarregado!"
+  },
+  "reloadlocales": {
+    "commandDescription": "Recarrega o sistema de Idiomas.",
+    "error": "Ocorreu um erro ao recarregar o sistema: **{{error}}**",
+    "sucess": "O sistema foi recarregado com **sucesso**!"
+  },
+  "say": {
+    "commandDescription": "Faz o bot enviar uma mensagem.",
+    "commandUsage": "<mensagem>"
+  },
   "config": {
     "commandDescription": "Altera a configuração atual do servidor.",
     "commandUsage": "[configuração a ser alterada]",
@@ -20,143 +39,129 @@
         "commandDescription": "Altera o prefixo do servidor atual.",
         "commandUsage": "<novo prefixo>",
         "info": "**Para alterar o prefixo do servidor**:",
-        "noPrefix": "Você tem que me dar um prefixo!",
+        "missingPrefix": "Você tem que me dar um prefixo!",
         "changedSuccessfully": "O prefixo foi alterado para **`{{prefix}}`**"
       }
     }
   },
-  "botinfo": {
-    "commandDescription": "Mostra informações sobre o bot.",
-    "stats": {
-      "title": "**Estatisticas do {{client.username}}**",
-      "text": "**Servidores**: `{{servers}}`\n**Usuários**: `{{users}}`\n**Tempo Online**: `{{uptime}}`"
-    },
-    "host": {
-      "title": "**Sobre a minha Hospedagem**",
-      "text": "**Memória Ram**: `{{ram}}`\n**Latência**: `{{ping}}`\n**Versão do Node**: [`{{version}}`](https://nodejs.org)"
-    },
-    "more": {
-      "title": "**Mais Informações**",
-      "text": "**Língua de Programação**: `JS (JavaScript)`\n**Discord.js**: [`{{dVersion}}`](https://discord.js.org)\n**Prefixo**: `{{prefix}}`"
+  "commandchannel": {
+    "commandDescription": "Configura os canais que o bot aceita comandos.",
+    "commandUsage": "[configuração]",
+    "subcommands": {
+      "set": {
+        "commandDescription": "Inseri um canal na lista branca.",
+        "commandUsage": "<canal>",
+        "info": "**Para inserir um canal**:",
+        "setChannelSuccessfully": "O canal **{{- name}}** foi setado com sucesso!"
+      },
+      "remove": {
+        "commandDescription": "Remove um canal da lista branca.",
+        "commandUsage": "<canal>",
+        "info": "**Para remover um canal**:",
+        "removeChannelSuccessfully": "Canal removido com sucesso!",
+        "channelInvalid": "Este canal não está setado!"
+      },
+      "list": {
+        "commandDescription": "Lista todos os comandos setados.",
+        "info": "**Para listar todos os canais**:",
+        "noChannels": "Nenhum canal setado!"
+      }
     }
+  },
+  "rank": {
+    "commandDescription": "Mostra os rank global do bot.",
+    "commandUsage": "[usuário]",
+    "tableTitle": "Classificação Global"
   },
   "help": {
-    "commandDescription": "Mostra informações sobre comandos ou lista-os.",
-    "commandUsage": "<nome do comando>",
+    "commandDescription": "Mostra as principais informações do bot.",
+    "commandUsage": "[nome do comando]",
     "noDescriptionProvided": "Nenhuma descrição fornecida.",
-    "specificInformation": "Digite `{{helpString}}` para obter informações específicas do comando.",
-    "category": "Categoria",
-    "listTitle": "Comandos Disponíveis",
-    "prefix": "Prefixo",
-    "usage": "Utilização",
-    "aliases": "Alternativas",
-    "permissions": "Permissões",
-    "subcommands": "Subcomandos",
-    "botPermissions": "Permissões do Bot"
+    "specificInformation": "Digite **{{helpString}}** para obter informações específicas do comando.",
+    "subcommandKnowMore": "Use **`{{usage}} [subcomando]`** para saber mais sobre um subcomando!"
   },
-  "reload": {
-    "error": "Ocorreu um erro ao recarregar o comando:\n**{{error}}**",
-    "sucess": "O comando **`{{command}}`** foi recarregado com sucesso!",
-    "noCommand": "Por favor insira o `nome` ou uma `aliase` do comando a ser recarregado!"
+  "daily": {
+    "commandDescription": "Reivindica sua recompensa diária.",
+    "alreadyClaimedDescription": "Você já reivindicou sua recompensa diária. Você pode pegar novamente em **{{time}}**.",
+    "claimedSuccessfully": "Você recebeu **$t(economy:currencyWithCount, { 'count': {{count}} })** como sua recompensa diária!"
   },
-  "serverinfo": {
-    "commandDescription": "Mostra as informações do servidor.",
-    "info": {
-      "title": "**Informações e Estatisticas:**",
-      "text": "**Membros: `{{members}}`\nBots: `{{bots}}`\nVerificação: `{{verified}}`\nNível de Verificação: `{{verification}}`**"
-    },
-    "owner": {
-      "title": "**Dono Criação:**",
-      "text": "**Dono: {{owner}}\nCriado em: `{{founded}}`\nRegião: {{region}}**"
-    },
-    "structure": {
-      "title": "**Canais de texto, voz e categoria:**",
-      "text": "**A soma dos canais de `textos`, `voz` e `categorias` é `{{total}}` sendo:\nCanais de Texto: `{{text}}`\nCanais de Voz: `{{voice}}`\n Categorias: `{{category}}`**"
-    },
-    "miscellaneous": {
-      "title": "**Mais Informações:**",
-      "text": "**Emojis Particulares: `{{emojis}}`\nTotal de Cargos: `{{roles}}`\nConfiguração do AFK:**\nTempo: **`{{afkTime}}`**\nCanal: {{afkChannel}}"
-    }
+  "money": {
+    "commandDescription": "Ver as suas moedas atuais.",
+    "commandUsage": "[usuário]",
+    "authorMoney": "Você possui **{{balance}} moedas** atualmente.",
+    "userMoney": "O usuário `{{user}}` possui **$t(economy:lowerPocket, { 'count': {{balance}} })** atualmente."
   },
-  "reloadlocales": {
-    "error": "Ocorreu um erro ao recarregar o sistema: **{{error}}**",
-    "sucess": "O sistema foi recarregado com **sucesso**!"
+  "rep": {
+    "commandDescription": "Da um ponto de reputação para um usuário.",
+    "commandUsage": "<usuário>",
+    "alreadyDonateDescription": "Você já deu seu ponto de reputação diário. Aguarde **{{time}}** para dar novamente.",
+    "claimedSuccessfully": "Você deu **1** ponto de reputação para **{{tag}}**!"
   },
-  "userinfo": {
-    "cmdDescription": "Painel de controle de usuários da guilda {{guild}}",
-    "userDescription":"**Nome: `{{member}}`\nTag: `{{tag}}`\nBot ?  `{{bot}}`**",
-  "moreInformation":{
-    "more":"Informações de criação",
-    "userInformation":"**Criada em : `{{created}}`\nID `{{id}}`**"
-    },
-    "presence":{
-      "presenceTitle":"Informações sobre o status do usuário.",
-      "presenceInfo":"**Jogando : `{{game}}`\nStatus: `{{status}}`**"
-    },
-    "roles":{
-      "rolesInfo":"Cargos dentro da guilda",
-      "rolesName":"Tags: {{roles}}"
-    }
-  },
-  "stats": {
-    "commandDescription": "Mostra informações sobre um jogador de RuneScape.",
-    "commandUsage": "<versão> <pesquisa>",
-    "embedTitle": "Por favor insira a versão que deseja fazer a pesquisa!",
-    "needInsert": "Você precisa fornecer o apelido do jogador desejado!",
-    "noFound": "Desculpe, não consegui encontrar nenhum jogador com oque foi inserido!",
+  "background": {
+    "commandDescription": "Altera o plano de fundo do perfil do usuário",
+    "commandUsage": "<imagem | url>",
+    "updateBackgroundSucess": "O plano de fundo de seu perfil foi alterado com sucesso!",
+    "updateBackgroundError": "Por favor insira uma imagem válida.",
     "subcommands": {
-      "rs": {
-        "commandDescription": "Mostra informações do perfil do jogador na versão atualizada (RS3) do RuneScape.",
-        "commandUsage": "<apelido do jogador>",
-        "tableTitle": "ESTATÍSTICAS DO RS3 DE: {{search}}"
+      "remove": {
+        "commandDescription": "Reseta o plano de fundo.",
+        "backgroundReset": "Seu plano de fundo foi resetado!"
+      }
+    }
+  },
+  "profile": {
+    "commandDescription": "Mostra as informções do perfil do usuário.",
+    "commandUsage": "[usuário]"
+  },
+  "favcolor": {
+    "commandDescription": "Define a cor do seu perfil.",
+    "commandUsage": "<#hexadecimal>",
+    "changedSuccessfully": "A cor de seu perfil foi alterada para **{{hexadecimal}}**."
+  },
+  "play": {
+    "commandDescription": "Toca música em um canal de voz.",
+    "commandUsage": "<link | nome>",
+    "noTrackIdentifier": "Por favor insira a música que deseja reproduzir!"
+  },
+  "stop": {
+    "commandDescription": "Para a reprodução da música.",
+    "stopped": "A reprodução foi interrompida, saindo do canal de voz..."
+  },
+  "volume": {
+    "commandDescription": "Ajusta o volume da reprodução da música.",
+    "commandUsage": "<0-150>",
+    "missingVolumeParameter": "Você precisa me fornecer um nível de volume!",
+    "invalidVolumeParameter": "Você precisa me dar um número válido!",
+    "notPlaying": "O volume não pode ser ajustado enquanto não estiver sendo reproduzido nada!",
+    "volumeSet": "Volume definido em **{{volume}}%**"
+  },
+  "skip": {
+    "commandDescription": "Pula para a próxima música."
+  },
+  "pause": {
+    "commandDescription": "Pausa|Reproduz a música que está sendo tocada."
+  },
+  "queue": {
+    "commandDescription": "Mostra a lista de reprodução.",
+    "subcommands": {
+      "clear": {
+        "commandDescription": "Limpa a lista de reprodução.",
+        "queueCleared": "A lista de reprodução foi limpa com sucesso!"
       },
-      "osrs": {
-        "commandDescription": "Mostra informações do perfil do jogador na versão antiga (OldSchool) do RuneScape.",
-        "commandUsage": "<apelido do jogador>",
-        "tableTitle": "ESTATÍSTICAS DO OSRS DE: {{player}}"
+      "shuffle": {
+        "commandDescription": "Embaralha a lista de reprodução.",
+        "queueShuffled": "A lista de reprodução foi embaralhada!"
+      },
+      "jump": {
+        "commandDescription": "Pula para a música desejada.",
+        "commandUsage": "<numero da musica>",
+        "missingIndexParameter": "Você precisa me fornecer o número da música para a qual deseja pular.",
+        "jumpedToSong": "Saltou para {{- songName}}."
       }
     }
   },
-  "claninfo": {
-    "commandDescription": "Mostra informações sobre um clan de RuneScape.",
-    "commandUsage": "<versão> <pesquisa>",
-    "embedTitle": "Por favor insira a versão que deseja fazer a pesquisa!",
-    "needInsert": "Você precisa fornecer o nome do clan desejado!",
-    "noFound": "Desculpe, não consegui encontrar nenhum clan com oque foi inserido!",
-    "subcommands": {
-      "rs": {
-        "commandDescription": "Mostra informações de um clan na versão atualizada (RS3) do RuneScape.",
-        "commandUsage": "<nome do clan>",
-        "embedTitle": "Informações sobre o clan: **{{clanName}}**",
-        "totalMembers": "Total de Membros: **{{members}}**",
-        "tableTitle": "Membros",
-        "andMore": "e mais **{{size}}** membros..."
-      }
-    }
-  },
-  "activities": {
-    "commandDescription": "Mostra a atividade de um jogador de RuneScape.",
-    "commandUsage": "<versão> <pesquisa>",
-    "embedTitle": "Por favor insira a versão que deseja fazer a pesquisa!",
-    "needInsert": "Você precisa fornecer o nome do jogador desejado!",
-    "noFound": "Desculpe, não consegui encontrar nenhum clan com oque foi inserido!",
-    "subcommands": {
-      "osrs": {
-        "commandDescription": "Mostra informações do perfil do jogador na versão antiga (OldSchool) do RuneScape.",
-        "commandUsage": "<apelido do jogador>",
-        "tableTitle": "ATIVIDADE DO OSRS DE: {{player}}"
-      }
-    }
-  },
-  "channelinfo":{
-    "cmdDescription":"Descrição sobre canais da guilda.",
-    "channelTitle":"Descrição",
-    "about":"Nome : `{{channel}}`\nData de criação: `{{created}}`\nTipo: `{{type}}`\nID: `{{Id}}`\nPosição: `{{position}}`\nLimite de Usuários: {{userLimit}}"
-  },
-  "ascii": {
-    "commandDescription": "Envia um texto em ascii no chat.",
-    "commandUsage": "<texto>",
-    "emitedError": "Ocorreu um error no processamento!\n`{{- error}}`"
+  "nowplaying": {
+    "commandDescription": "Mostra a música que está sendo reproduzida."
   },
   "hug": {
     "commandDescription": "Abraça um usuário.",
@@ -168,17 +173,64 @@
     "commandDescription": "Da um tapa em um usuário.",
     "commandUsage": "<usuário>",
     "missingUser": "Você precisa mencionar o usuário que deseja estapear!",
-    "successSlap": "{{- author}} deu um tapa em {{- user}}!"
+    "successSlap": "{{- author}} de um tapa em {{- user}}!"
   },
-  "reportbug": {
+  "ascii": {
+    "commandDescription": "Envia um texto em ascii no chat.",
+    "commandUsage": "<texto>",
+    "emitedError": "Ocorreu um error no processamento!\n`{{- error}}`"
+  },
+  "ban": {
+    "commandDescription": "Bane um membro deste servidor.",
+    "commandUsage": "<membro> [razão]",
+    "missingUser": "Você precisa me dar um membro para banir!",
+    "missingReason": "Você precisa me dar um motivo para banir!",
+    "noPermission": "Estou com falta da permissão **$t(permissions: BAN_MEMBERS)** para banir este membro.",
+    "successTitle": "O membro foi banido!",
+    "cantBan": "Não posso banir este membro!"
+  },
+  "kick": {
+    "commandDescription": "Bane um membro deste servidor.",
+    "commandUsage": "<membro> [razão]",
+    "missingUser": "Você precisa me dar um membro para banir!",
+    "missingReason": "Você precisa me dar um motivo para banir!",
+    "noPermission": "Estou com falta da permissão **$t(permissions: KICK_MEMBERS)** para banir este membro.",
+    "successTitle": "O membro foi banido!",
+    "cantKick": "Não posso kickar este membro!"
+  },
+  "commands": {
+    "commandDescription": "Mostra todos os comandos do bot.",
+    "commandsTitle": "Possuo atualmente o total de **`{{count}}`** comando!",
+    "commandsTitle_plural": "Possuo atualmente o total de **`{{count}}`** comandos!"
+  },
+  "weather": {
+    "commandDescription": "Mostra a o tempo da cidade inserida.",
+    "commandUsage": "<nome da cidade>",
+    "cityNotEntered": "Por favor insira o nome da cidade desejeada.",
+    "cityNotFound": "A cidade inserida não foi encontrada!",
+    "timezone": "Fuso Horário",
+    "temperature": "Temperatura",
+    "thermalSensation": "Sensação Térmica",
+    "wind": "Velocidade e Direção do vento",
+    "humidity": "Umidade do ar",
+    "day": "Dia da semana"
+  },
+  "personaltext": {
+    "commandDescription": "Altera o texto pessoal do perfil.",
+    "commandUsage": "<texto>",
+    "updateSucessTitle": "Texto pessoal alterado com sucesso!"
+  },
+  "bugreport": {
     "commandDescription": "Esclarece um bug para o time de desenvolvedores do bot.",
-    "commandUsage": "<bug> [--screenshots <prints url>]",
+    "commandUsage": "<bug> [--screenshots +prints url]",
     "missingBug": "Desculpe, você precisa inserir o bug.",
     "screenshots": "Capturas de tela",
     "view": "Ver"
   },
-  "changeavatar": {
-    "args-null": "coloque a URL do avatar.",
-    "avatar": "Pronto, agora eu estou com um novo avatar"
+  "addemoji": {
+    "commandDescription": "Adiciona um emoji novo ao servidor",
+    "commandUsage": "<imagem | url> <nome>",
+    "successfullyAdded": "O emoji **{{name}}** foi adicionado com sucesso!",
+    "createEmojiError": "Ocorreu um erro ao criar o emoji!"
   }
 }
