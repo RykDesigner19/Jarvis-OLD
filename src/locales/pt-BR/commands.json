@@ -232,5 +232,20 @@
     "commandUsage": "<imagem | url> <nome>",
     "successfullyAdded": "O emoji **{{name}}** foi adicionado com sucesso!",
     "createEmojiError": "Ocorreu um erro ao criar o emoji!"
+  },
+  "botinfo": {
+    "commandDescription": "Mostra informações sobre o bot.",
+    "stats": {
+      "title": "**Estatisticas do {{client.username}}**",
+      "text": "**Servidores**: `{{servers}}`\n**Usuários**: `{{users}}`\n**Tempo Online**: `{{uptime}}`"
+    },
+    "host": {
+      "title": "**Sobre a minha Hospedagem**",
+      "text": "**Memória Ram**: `{{ram}}`\n**Latência**: `{{ping}}`\n**Versão do Node**: [`{{version}}`](https://nodejs.org)"
+    },
+    "more": {
+      "title": "**Mais Informações**",
+      "text": "**Língua de Programação**: `JS (JavaScript)`\n**Discord.js**: [`{{dVersion}}`](https://discord.js.org)\n**Prefixo**: `{{prefix}}`"
+    }
   }
 }
