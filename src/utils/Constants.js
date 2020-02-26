@@ -41,7 +41,7 @@ module.exports = {
   DEFAULT_LANGUAGE: 'pt-BR',
   BOT_GUILD: '682007461414174729',
   DEVELOPER_ROLE: '682008234953146388',
-  WEBSITE_URL: 'https://www.instagram.com/hijazi_gabriel/',
+  WEBSITE_URL: '#',
   Channels: {
     BUG_REPORT: '682018687624020082'
   },

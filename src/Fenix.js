@@ -6,7 +6,7 @@ const { Loader } = require('.')
 
 const getDate = () => moment.locale('pt-BR') && moment().format('L LTS')
 
-module.exports = class TobiasClient extends Client {
+module.exports = class FenixClient extends Client {
   constructor (config) {
     super(config)
 

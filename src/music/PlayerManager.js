@@ -48,7 +48,7 @@ const resolveRegion = region => {
   return dRegion && dRegion[0]
 }
 
-module.exports = class TobiasPlayerManager extends PlayerManager {
+module.exports = class FenixPlayerManager extends PlayerManager {
   constructor (client, nodes = [], options = {}) {
     options.player = GuildPlayer
     super(client, nodes, options)

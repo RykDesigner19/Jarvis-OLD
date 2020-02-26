@@ -13,7 +13,10 @@
     "node": ">=12"
   },
   "author": "HijaZi",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devhijazi/Jarvis-OLD.git"
+  },
   "license": "ISC",
   "keywords": [
     "nodejs",
@@ -72,5 +75,9 @@
     "mocha": "^7.0.1",
     "mocha-standard": "^1.0.0",
     "standard": "^14.3.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/devhijazi/Jarvis-OLD/issues"
+  },
+  "homepage": "https://github.com/devhijazi/Jarvis-OLD#readme"
 }
